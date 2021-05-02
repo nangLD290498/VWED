@@ -1,0 +1,613 @@
+define(['dart_sdk', 'packages/flutter_bloc/src/bloc_provider.dart', 'packages/flutter_web_diary/bloc/guests/guests_bloc.dart', 'packages/flutter_web_diary/firebase_repository/guest_firebase_repository.dart', 'packages/flutter_web_diary/firebase_repository/notification_firebase_repository.dart', 'packages/flutter_web_diary/bloc/guests/guests_event.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter_bloc/src/bloc_builder.dart', 'packages/flutter_web_diary/util/globle_variable.dart', 'packages/flutter_web_diary/screen/views/error/error_page.dart', 'packages/flutter_web_diary/bloc/guests/guests_state.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter_web_diary/screen/widgets/centered_view/centered_view.dart', 'packages/responsive_builder/src/widget_builders.dart', 'packages/flutter_web_diary/screen/views/input_details/input_details_mobile_tablet.dart', 'packages/flutter_web_diary/screen/views/input_details/input_detail_desktop.dart', 'packages/flutter_web_diary/model/wedding.dart'], (function load__packages__flutter_web_diary__screen__views__input_details__input_details_dart(dart_sdk, packages__flutter_bloc__src__bloc_provider$46dart, packages__flutter_web_diary__bloc__guests__guests_bloc$46dart, packages__flutter_web_diary__firebase_repository__guest_firebase_repository$46dart, packages__flutter_web_diary__firebase_repository__notification_firebase_repository$46dart, packages__flutter_web_diary__bloc__guests__guests_event$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter_bloc__src__bloc_builder$46dart, packages__flutter_web_diary__util__globle_variable$46dart, packages__flutter_web_diary__screen__views__error__error_page$46dart, packages__flutter_web_diary__bloc__guests__guests_state$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter_web_diary__screen__widgets__centered_view__centered_view$46dart, packages__responsive_builder__src__widget_builders$46dart, packages__flutter_web_diary__screen__views__input_details__input_details_mobile_tablet$46dart, packages__flutter_web_diary__screen__views__input_details__input_detail_desktop$46dart, packages__flutter_web_diary__model__wedding$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const bloc_provider = packages__flutter_bloc__src__bloc_provider$46dart.src__bloc_provider;
+  const guests_bloc = packages__flutter_web_diary__bloc__guests__guests_bloc$46dart.bloc__guests__guests_bloc;
+  const guest_firebase_repository = packages__flutter_web_diary__firebase_repository__guest_firebase_repository$46dart.firebase_repository__guest_firebase_repository;
+  const notification_firebase_repository = packages__flutter_web_diary__firebase_repository__notification_firebase_repository$46dart.firebase_repository__notification_firebase_repository;
+  const guests_event = packages__flutter_web_diary__bloc__guests__guests_event$46dart.bloc__guests__guests_event;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const bloc_builder = packages__flutter_bloc__src__bloc_builder$46dart.src__bloc_builder;
+  const globle_variable = packages__flutter_web_diary__util__globle_variable$46dart.util__globle_variable;
+  const error_page = packages__flutter_web_diary__screen__views__error__error_page$46dart.screen__views__error__error_page;
+  const guests_state = packages__flutter_web_diary__bloc__guests__guests_state$46dart.bloc__guests__guests_state;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const centered_view = packages__flutter_web_diary__screen__widgets__centered_view__centered_view$46dart.screen__widgets__centered_view__centered_view;
+  const widget_builders = packages__responsive_builder__src__widget_builders$46dart.src__widget_builders;
+  const input_details_mobile_tablet = packages__flutter_web_diary__screen__views__input_details__input_details_mobile_tablet$46dart.screen__views__input_details__input_details_mobile_tablet;
+  const input_detail_desktop = packages__flutter_web_diary__screen__views__input_details__input_detail_desktop$46dart.screen__views__input_details__input_detail_desktop;
+  const wedding = packages__flutter_web_diary__model__wedding$46dart.model__wedding;
+  var input_details = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    GuestsBlocL: () => (T.GuestsBlocL = dart.constFn(dart.legacy(guests_bloc.GuestsBloc)))(),
+    BlocProviderOfGuestsBlocL: () => (T.BlocProviderOfGuestsBlocL = dart.constFn(bloc_provider.BlocProvider$(T.GuestsBlocL())))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    BuildContextLToGuestsBlocL: () => (T.BuildContextLToGuestsBlocL = dart.constFn(dart.fnType(T.GuestsBlocL(), [T.BuildContextL()])))(),
+    BlocBuilderOfGuestsBlocL$dynamic: () => (T.BlocBuilderOfGuestsBlocL$dynamic = dart.constFn(bloc_builder.BlocBuilder$(T.GuestsBlocL(), dart.dynamic)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    GuestsLoadedL: () => (T.GuestsLoadedL = dart.constFn(dart.legacy(guests_state.GuestsLoaded)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    BuildContextLAnddynamicToWidgetL: () => (T.BuildContextLAnddynamicToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL(), dart.dynamic])))(),
+    BlocBuilderLOfGuestsBlocL$dynamic: () => (T.BlocBuilderLOfGuestsBlocL$dynamic = dart.constFn(dart.legacy(T.BlocBuilderOfGuestsBlocL$dynamic())))(),
+    BuildContextLToBlocBuilderLOfGuestsBlocL$dynamic: () => (T.BuildContextLToBlocBuilderLOfGuestsBlocL$dynamic = dart.constFn(dart.fnType(T.BlocBuilderLOfGuestsBlocL$dynamic(), [T.BuildContextL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 62,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapped",
+        [_Location_column]: 64,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "guest",
+        [_Location_column]: 83,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "weddingID",
+        [_Location_column]: 96,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 39,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapped",
+        [_Location_column]: 64,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "guest",
+        [_Location_column]: 83,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "weddingID",
+        [_Location_column]: 96,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 39,
+        [_Location_line]: 51,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapped",
+        [_Location_column]: 60,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "guest",
+        [_Location_column]: 79,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "weddingID",
+        [_Location_column]: 92,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mobile",
+        [_Location_column]: 31,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tablet",
+        [_Location_column]: 31,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "desktop",
+        [_Location_column]: 31,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27], T._LocationL());
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([C[30] || CT.C30], T._LocationL());
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 21,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 21,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 21,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], T._LocationL());
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 17,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "cubit",
+        [_Location_column]: 11,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52], T._LocationL());
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "create",
+        [_Location_column]: 7,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56], T._LocationL());
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/screen/views/input_details/input_details.dart"
+      });
+    }
+  }, false);
+  var C = Array(57).fill(void 0);
+  var I = ["package:flutter_web_diary/screen/views/input_details/input_details.dart"];
+  var selectedWedding$ = dart.privateName(input_details, "InputDetailsPage.selectedWedding");
+  var selectedGuestID$ = dart.privateName(input_details, "InputDetailsPage.selectedGuestID");
+  var onTapped$ = dart.privateName(input_details, "InputDetailsPage.onTapped");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  input_details.InputDetailsPage = class InputDetailsPage extends framework.StatelessWidget {
+    get selectedWedding() {
+      return this[selectedWedding$];
+    }
+    set selectedWedding(value) {
+      this[selectedWedding$] = value;
+    }
+    get selectedGuestID() {
+      return this[selectedGuestID$];
+    }
+    set selectedGuestID(value) {
+      this[selectedGuestID$] = value;
+    }
+    get onTapped() {
+      return this[onTapped$];
+    }
+    set onTapped(value) {
+      this[onTapped$] = value;
+    }
+    build(context) {
+      return new (T.BlocProviderOfGuestsBlocL()).new({create: dart.fn(context => {
+          let t0;
+          t0 = new guests_bloc.GuestsBloc.new({guestsRepository: new guest_firebase_repository.FirebaseGuestRepository.new(), notificationRepository: new notification_firebase_repository.NotificationFirebaseRepository.new()});
+          return (() => {
+            t0.add(new guests_event.LoadGuests.new(this.selectedWedding.id));
+            return t0;
+          })();
+        }, T.BuildContextLToGuestsBlocL()), child: new basic.Builder.new({builder: dart.fn(context => new (T.BlocBuilderOfGuestsBlocL$dynamic()).new({cubit: bloc_provider.BlocProvider.of(T.GuestsBlocL(), context), builder: dart.fn((context, state) => {
+              if (globle_variable.globleweddingID != this.selectedWedding.id) return new error_page.UnknownScreen.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+              if (T.GuestsLoadedL().is(state)) {
+                let guests = state.guests;
+                for (let i = 0; i < dart.notNull(guests[$length]); i = i + 1) {
+                  let guest = guests[$_get](i);
+                  if (guest.id == this.selectedGuestID) {
+                    return new scaffold.Scaffold.new({backgroundColor: colors.Colors.white12, body: new centered_view.CenteredView.new({child: new basic.Column.new({children: T.JSArrayOfWidgetL().of([new basic.Expanded.new({child: new widget_builders.ScreenTypeLayout.new({mobile: new input_details_mobile_tablet.InputDetailsMobileTablet.new({onTapped: this.onTapped, guest: guest, weddingID: this.selectedWedding.id, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), tablet: new input_details_mobile_tablet.InputDetailsMobileTablet.new({onTapped: this.onTapped, guest: guest, weddingID: this.selectedWedding.id, $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), desktop: new input_detail_desktop.InputDetailsDesktop.new({onTapped: this.onTapped, guest: guest, weddingID: this.selectedWedding.id, $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22})]), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), $creationLocationd_0dea112b090073317d4: C[28] || CT.C28}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31});
+                  }
+                }
+                return new error_page.UnknownScreen.new({$creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+              }
+              return new container.Container.new({color: colors.Colors.grey._get(100), child: new basic.Center.new({child: new image.Image.asset("assets/favicon-32x32.png", {$creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
+            }, T.BuildContextLAnddynamicToWidgetL()), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46}), T.BuildContextLToBlocBuilderLOfGuestsBlocL$dynamic()), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53});
+    }
+  };
+  (input_details.InputDetailsPage.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let selectedWedding = opts && 'selectedWedding' in opts ? opts.selectedWedding : null;
+    let selectedGuestID = opts && 'selectedGuestID' in opts ? opts.selectedGuestID : null;
+    let onTapped = opts && 'onTapped' in opts ? opts.onTapped : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[selectedWedding$] = selectedWedding;
+    this[selectedGuestID$] = selectedGuestID;
+    this[onTapped$] = onTapped;
+    input_details.InputDetailsPage.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = input_details.InputDetailsPage.prototype;
+  dart.addTypeTests(input_details.InputDetailsPage);
+  dart.addTypeCaches(input_details.InputDetailsPage);
+  dart.setMethodSignature(input_details.InputDetailsPage, () => ({
+    __proto__: dart.getMethods(input_details.InputDetailsPage.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(input_details.InputDetailsPage, I[0]);
+  dart.setFieldSignature(input_details.InputDetailsPage, () => ({
+    __proto__: dart.getFields(input_details.InputDetailsPage.__proto__),
+    selectedWedding: dart.fieldType(dart.legacy(wedding.Wedding)),
+    selectedGuestID: dart.fieldType(dart.legacy(core.String)),
+    onTapped: dart.fieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.bool)])))
+  }));
+  dart.trackLibraries("packages/flutter_web_diary/screen/views/input_details/input_details.dart", {
+    "package:flutter_web_diary/screen/views/input_details/input_details.dart": input_details
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["input_details.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAeU;;;;;;IACD;;;;;;IACY;;;;;;UASO;AACxB,YAAO,kDACG,QAAc;;AAAY,iEACd,qFACM;gBAFQ;AAG/B,mBAAI,gCAAW,AAAgB;;;mDAC3B,gCACI,QAAC,WAAY,uDACA,+CAAe,OAAO,YACjC,SAAC,SAAS;AACjB,kBAAG,AAAgB,mCAAG,AAAgB,yBAAI,MAAO;AACjD,kBAAU,qBAAN,KAAK;AACK,6BAAS,AAAM,KAAD;AAC1B,yBAAQ,IAAE,GAAG,AAAC,CAAA,gBAAC,AAAO,MAAD,YAAQ,IAAA,AAAC,CAAA;AACtB,8BAAQ,AAAM,MAAA,QAAC,CAAC;AACtB,sBAAI,AAAM,AAAG,KAAJ,OAAO;AACd,0BAAO,6CACmB,6BAClB,2CACG,gCACa,yBAChB,+BACS,kDACG,wEAAmC,sBAAgB,KAAK,aAAY,AAAgB,0FACpF,wEAAmC,sBAAgB,KAAK,aAAY,AAAgB,2FACnF,4DAA8B,sBAAgB,KAAK,aAAY,AAAgB;;;AASxG,sBAAO;;AAEP,oBAAO,qCACS,AAAI,wBAAC,aACZ,6BACQ,sBACX;;IASlB;;;QAxDS;QACU;QACA;QACA;;IAFA;IACA;IACA;AACb,kEAAW,GAAG;;EAAC","file":"../../../../../../../../packages/flutter_web_diary/screen/views/input_details/input_details.dart.lib.js"}');
+  // Exports:
+  return {
+    screen__views__input_details__input_details: input_details
+  };
+}));
+
+//# sourceMappingURL=input_details.dart.lib.js.map

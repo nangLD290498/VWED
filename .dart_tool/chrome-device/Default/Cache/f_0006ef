@@ -1,0 +1,1830 @@
+define(['dart_sdk', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/input_border.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/painting/decoration.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/services/text_formatter.dart', 'packages/flutter/src/material/ink_decoration.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/widgets/icon.dart'], (function load__packages__number_inc_dec__src__number_increment_decrement_dart(dart_sdk, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__input_border$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__painting__decoration$46dart, packages__flutter__src__painting__strut_style$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__services__text_formatter$46dart, packages__flutter__src__material__ink_decoration$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__widgets__icon$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const colors$ = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const input_border = packages__flutter__src__material__input_border$46dart.src__material__input_border;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const text_formatter = packages__flutter__src__services__text_formatter$46dart.src__services__text_formatter;
+  const ink_decoration = packages__flutter__src__material__ink_decoration$46dart.src__material__ink_decoration;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  var number_increment_decrement = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $add = dartx.add;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
+    ButtonArrangementL: () => (T.ButtonArrangementL = dart.constFn(dart.legacy(number_increment_decrement.ButtonArrangement)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    TextInputFormatterL: () => (T.TextInputFormatterL = dart.constFn(dart.legacy(text_formatter.TextInputFormatter)))(),
+    JSArrayOfTextInputFormatterL: () => (T.JSArrayOfTextInputFormatterL = dart.constFn(_interceptors.JSArray$(T.TextInputFormatterL())))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    StringLToNull: () => (T.StringLToNull = dart.constFn(dart.fnType(core.Null, [T.StringL()])))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: number_increment_decrement.ButtonArrangement.prototype,
+        [_name$]: "ButtonArrangement.rightEnd",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: box_border.BoxShape.prototype,
+        [_name]: "BoxShape.rectangle",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: box_decoration.BoxDecoration.prototype,
+        [BoxDecoration_shape]: C[2] || CT.C2,
+        [BoxDecoration_backgroundBlendMode]: null,
+        [BoxDecoration_gradient]: null,
+        [BoxDecoration_boxShadow]: null,
+        [BoxDecoration_borderRadius]: null,
+        [BoxDecoration_border]: null,
+        [BoxDecoration_image]: null,
+        [BoxDecoration_color]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 58798
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 58796
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294047977.0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4292668872.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4291158437.0
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4289648001.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288466021.0
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287349578.0
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4286362434.0
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285046584.0
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283796271.0
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4281559326.0
+      });
+    },
+    get C6() {
+      return C[6] = dart.constMap(T.intL(), T.ColorL(), [50, C[7] || CT.C7, 100, C[8] || CT.C8, 200, C[9] || CT.C9, 300, C[10] || CT.C10, 400, C[11] || CT.C11, 500, C[12] || CT.C12, 600, C[13] || CT.C13, 700, C[14] || CT.C14, 800, C[15] || CT.C15, 900, C[16] || CT.C16]);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: colors.MaterialColor.prototype,
+        [Color_value]: 4287349578.0,
+        [ColorSwatch__swatch]: C[6] || CT.C6
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 58727
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 59758
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: number_increment_decrement.ButtonArrangement.prototype,
+        [_name$]: "ButtonArrangement.leftEnd",
+        index: 0
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: number_increment_decrement.ButtonArrangement.prototype,
+        [_name$]: "ButtonArrangement.incLeftDecRight",
+        index: 2
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: number_increment_decrement.ButtonArrangement.prototype,
+        [_name$]: "ButtonArrangement.incRightDecLeft",
+        index: 3
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[19] || CT.C19, C[0] || CT.C0, C[20] || CT.C20, C[21] || CT.C21], T.ButtonArrangementL());
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 19,
+        [_Location_line]: 681,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 19,
+        [_Location_line]: 682,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "enabled",
+        [_Location_column]: 19,
+        [_Location_line]: 683,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 19,
+        [_Location_line]: 684,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "autovalidate",
+        [_Location_column]: 19,
+        [_Location_line]: 685,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 19,
+        [_Location_line]: 686,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 19,
+        [_Location_line]: 692,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 19,
+        [_Location_line]: 693,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inputFormatters",
+        [_Location_column]: 19,
+        [_Location_line]: 697,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onFieldSubmitted",
+        [_Location_column]: 19,
+        [_Location_line]: 704,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 680,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 15,
+        [_Location_line]: 679,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 680,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 678,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 11,
+        [_Location_line]: 670,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 671,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 669,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 9,
+        [_Location_line]: 661,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 669,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.constList([C[45] || CT.C45, C[46] || CT.C46], T._LocationL());
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[44] || CT.C44,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 660,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "transform",
+        [_Location_column]: 7,
+        [_Location_line]: 658,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 660,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50], T._LocationL());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 657,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 13,
+        [_Location_line]: 743,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 13,
+        [_Location_line]: 744,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54], T._LocationL());
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 742,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 7,
+        [_Location_line]: 736,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 7,
+        [_Location_line]: 737,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 7,
+        [_Location_line]: 738,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 739,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57, C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], T._LocationL());
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 735,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 18,
+        [_Location_line]: 766,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 767,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 768,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], T._LocationL());
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 765,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashColor",
+        [_Location_column]: 9,
+        [_Location_line]: 764,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 765,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 770,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69, C[70] || CT.C70], T._LocationL());
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 763,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 753,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 763,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.constList([C[73] || CT.C73, C[74] || CT.C74], T._LocationL());
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[72] || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 752,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 18,
+        [_Location_line]: 811,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 812,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 813,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79], T._LocationL());
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 810,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashColor",
+        [_Location_column]: 9,
+        [_Location_line]: 809,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 810,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 815,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83, C[84] || CT.C84], T._LocationL());
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[81] || CT.C81,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 808,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 796,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 808,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88], T._LocationL());
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 795,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/number_inc_dec-0.6.6/lib/src/number_increment_decrement.dart"
+      });
+    }
+  }, false);
+  var C = Array(89).fill(void 0);
+  var I = ["package:number_inc_dec/src/number_increment_decrement.dart"];
+  var key$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.key");
+  var enabled$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.enabled");
+  var controller$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.controller");
+  var buttonArrangement$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.buttonArrangement");
+  var min$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.min");
+  var max$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.max");
+  var incDecFactor$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.incDecFactor");
+  var initialValue$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.initialValue");
+  var isInt$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.isInt");
+  var autovalidate$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.autovalidate");
+  var numberFieldDecoration$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.numberFieldDecoration");
+  var widgetContainerDecoration$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.widgetContainerDecoration");
+  var validator$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.validator");
+  var style$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.style");
+  var incIconDecoration = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.incIconDecoration");
+  var decIconDecoration = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.decIconDecoration");
+  var incIcon$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.incIcon");
+  var incIconSize$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.incIconSize");
+  var incIconColor$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.incIconColor");
+  var onIncrement$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.onIncrement");
+  var onSubmitted$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.onSubmitted");
+  var decIcon$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.decIcon");
+  var decIconSize$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.decIconSize");
+  var decIconColor$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.decIconColor");
+  var onDecrement$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.onDecrement");
+  var fractionDigits$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.fractionDigits");
+  var scaleWidth$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.scaleWidth");
+  var scaleHeight$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.scaleHeight");
+  var separateIcons$ = dart.privateName(number_increment_decrement, "NumberInputPrefabbed.separateIcons");
+  var _name$ = dart.privateName(number_increment_decrement, "_name");
+  var _name = dart.privateName(box_border, "_name");
+  var BoxDecoration_shape = dart.privateName(box_decoration, "BoxDecoration.shape");
+  var BoxDecoration_backgroundBlendMode = dart.privateName(box_decoration, "BoxDecoration.backgroundBlendMode");
+  var BoxDecoration_gradient = dart.privateName(box_decoration, "BoxDecoration.gradient");
+  var BoxDecoration_boxShadow = dart.privateName(box_decoration, "BoxDecoration.boxShadow");
+  var BoxDecoration_borderRadius = dart.privateName(box_decoration, "BoxDecoration.borderRadius");
+  var BoxDecoration_border = dart.privateName(box_decoration, "BoxDecoration.border");
+  var BoxDecoration_image = dart.privateName(box_decoration, "BoxDecoration.image");
+  var BoxDecoration_color = dart.privateName(box_decoration, "BoxDecoration.color");
+  var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
+  var IconData_fontPackage = dart.privateName(icon_data, "IconData.fontPackage");
+  var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
+  var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var ColorSwatch__swatch = dart.privateName(colors$, "ColorSwatch._swatch");
+  var key$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.key");
+  var enabled$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.enabled");
+  var controller$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.controller");
+  var buttonArrangement$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.buttonArrangement");
+  var min$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.min");
+  var max$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.max");
+  var incDecFactor$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.incDecFactor");
+  var initialValue$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.initialValue");
+  var isInt$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.isInt");
+  var autovalidate$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.autovalidate");
+  var numberFieldDecoration$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.numberFieldDecoration");
+  var widgetContainerDecoration$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.widgetContainerDecoration");
+  var validator$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.validator");
+  var style$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.style");
+  var incIconDecoration$ = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.incIconDecoration");
+  var decIconDecoration$ = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.decIconDecoration");
+  var incIcon$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.incIcon");
+  var incIconSize$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.incIconSize");
+  var incIconColor$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.incIconColor");
+  var onIncrement$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.onIncrement");
+  var onSubmitted$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.onSubmitted");
+  var decIcon$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.decIcon");
+  var decIconSize$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.decIconSize");
+  var decIconColor$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.decIconColor");
+  var onDecrement$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.onDecrement");
+  var fractionDigits$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.fractionDigits");
+  var scaleWidth$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.scaleWidth");
+  var scaleHeight$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.scaleHeight");
+  var separateIcons$0 = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.separateIcons");
+  var incDecBgColor$ = dart.privateName(number_increment_decrement, "NumberInputWithIncrementDecrement.incDecBgColor");
+  number_increment_decrement.NumberInputWithIncrementDecrement = class NumberInputWithIncrementDecrement extends framework.StatefulWidget {
+    get key() {
+      return this[key$0];
+    }
+    set key(value) {
+      super.key = value;
+    }
+    get enabled() {
+      return this[enabled$0];
+    }
+    set enabled(value) {
+      super.enabled = value;
+    }
+    get controller() {
+      return this[controller$0];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get buttonArrangement() {
+      return this[buttonArrangement$0];
+    }
+    set buttonArrangement(value) {
+      super.buttonArrangement = value;
+    }
+    get min() {
+      return this[min$0];
+    }
+    set min(value) {
+      super.min = value;
+    }
+    get max() {
+      return this[max$0];
+    }
+    set max(value) {
+      super.max = value;
+    }
+    get incDecFactor() {
+      return this[incDecFactor$0];
+    }
+    set incDecFactor(value) {
+      super.incDecFactor = value;
+    }
+    get initialValue() {
+      return this[initialValue$0];
+    }
+    set initialValue(value) {
+      super.initialValue = value;
+    }
+    get isInt() {
+      return this[isInt$0];
+    }
+    set isInt(value) {
+      super.isInt = value;
+    }
+    get autovalidate() {
+      return this[autovalidate$0];
+    }
+    set autovalidate(value) {
+      super.autovalidate = value;
+    }
+    get numberFieldDecoration() {
+      return this[numberFieldDecoration$0];
+    }
+    set numberFieldDecoration(value) {
+      super.numberFieldDecoration = value;
+    }
+    get widgetContainerDecoration() {
+      return this[widgetContainerDecoration$0];
+    }
+    set widgetContainerDecoration(value) {
+      super.widgetContainerDecoration = value;
+    }
+    get validator() {
+      return this[validator$0];
+    }
+    set validator(value) {
+      super.validator = value;
+    }
+    get style() {
+      return this[style$0];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get incIconDecoration() {
+      return this[incIconDecoration$];
+    }
+    set incIconDecoration(value) {
+      super.incIconDecoration = value;
+    }
+    get decIconDecoration() {
+      return this[decIconDecoration$];
+    }
+    set decIconDecoration(value) {
+      super.decIconDecoration = value;
+    }
+    get incIcon() {
+      return this[incIcon$0];
+    }
+    set incIcon(value) {
+      super.incIcon = value;
+    }
+    get incIconSize() {
+      return this[incIconSize$0];
+    }
+    set incIconSize(value) {
+      super.incIconSize = value;
+    }
+    get incIconColor() {
+      return this[incIconColor$0];
+    }
+    set incIconColor(value) {
+      super.incIconColor = value;
+    }
+    get onIncrement() {
+      return this[onIncrement$0];
+    }
+    set onIncrement(value) {
+      super.onIncrement = value;
+    }
+    get onSubmitted() {
+      return this[onSubmitted$0];
+    }
+    set onSubmitted(value) {
+      super.onSubmitted = value;
+    }
+    get decIcon() {
+      return this[decIcon$0];
+    }
+    set decIcon(value) {
+      super.decIcon = value;
+    }
+    get decIconSize() {
+      return this[decIconSize$0];
+    }
+    set decIconSize(value) {
+      super.decIconSize = value;
+    }
+    get decIconColor() {
+      return this[decIconColor$0];
+    }
+    set decIconColor(value) {
+      super.decIconColor = value;
+    }
+    get onDecrement() {
+      return this[onDecrement$0];
+    }
+    set onDecrement(value) {
+      super.onDecrement = value;
+    }
+    get fractionDigits() {
+      return this[fractionDigits$0];
+    }
+    set fractionDigits(value) {
+      super.fractionDigits = value;
+    }
+    get scaleWidth() {
+      return this[scaleWidth$0];
+    }
+    set scaleWidth(value) {
+      super.scaleWidth = value;
+    }
+    get scaleHeight() {
+      return this[scaleHeight$0];
+    }
+    set scaleHeight(value) {
+      super.scaleHeight = value;
+    }
+    get separateIcons() {
+      return this[separateIcons$0];
+    }
+    set separateIcons(value) {
+      super.separateIcons = value;
+    }
+    get incDecBgColor() {
+      return this[incDecBgColor$];
+    }
+    set incDecBgColor(value) {
+      super.incDecBgColor = value;
+    }
+    createState() {
+      return new number_increment_decrement._NumberInputWithIncrementDecrementState.new();
+    }
+  };
+  (number_increment_decrement.NumberInputWithIncrementDecrement.new = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+    let buttonArrangement = opts && 'buttonArrangement' in opts ? opts.buttonArrangement : C[0] || CT.C0;
+    let min = opts && 'min' in opts ? opts.min : 0;
+    let max = opts && 'max' in opts ? opts.max : 1 / 0;
+    let initialValue = opts && 'initialValue' in opts ? opts.initialValue : 0;
+    let incDecFactor = opts && 'incDecFactor' in opts ? opts.incDecFactor : 1;
+    let isInt = opts && 'isInt' in opts ? opts.isInt : true;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let numberFieldDecoration = opts && 'numberFieldDecoration' in opts ? opts.numberFieldDecoration : null;
+    let widgetContainerDecoration = opts && 'widgetContainerDecoration' in opts ? opts.widgetContainerDecoration : null;
+    let validator = opts && 'validator' in opts ? opts.validator : null;
+    let style = opts && 'style' in opts ? opts.style : null;
+    let incIcon = opts && 'incIcon' in opts ? opts.incIcon : C[3] || CT.C3;
+    let decIcon = opts && 'decIcon' in opts ? opts.decIcon : C[4] || CT.C4;
+    let fractionDigits = opts && 'fractionDigits' in opts ? opts.fractionDigits : 2;
+    let scaleWidth = opts && 'scaleWidth' in opts ? opts.scaleWidth : 1;
+    let scaleHeight = opts && 'scaleHeight' in opts ? opts.scaleHeight : 1;
+    let incIconSize = opts && 'incIconSize' in opts ? opts.incIconSize : null;
+    let decIconSize = opts && 'decIconSize' in opts ? opts.decIconSize : null;
+    let decIconColor = opts && 'decIconColor' in opts ? opts.decIconColor : null;
+    let incIconColor = opts && 'incIconColor' in opts ? opts.incIconColor : null;
+    let onDecrement = opts && 'onDecrement' in opts ? opts.onDecrement : null;
+    let onIncrement = opts && 'onIncrement' in opts ? opts.onIncrement : null;
+    let onSubmitted = opts && 'onSubmitted' in opts ? opts.onSubmitted : null;
+    let separateIcons = opts && 'separateIcons' in opts ? opts.separateIcons : false;
+    let decIconDecoration = opts && 'decIconDecoration' in opts ? opts.decIconDecoration : null;
+    let incIconDecoration = opts && 'incIconDecoration' in opts ? opts.incIconDecoration : null;
+    let incDecBgColor = opts && 'incDecBgColor' in opts ? opts.incDecBgColor : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$0] = controller;
+    this[key$0] = key;
+    this[enabled$0] = enabled;
+    this[buttonArrangement$0] = buttonArrangement;
+    this[min$0] = min;
+    this[max$0] = max;
+    this[initialValue$0] = initialValue;
+    this[incDecFactor$0] = incDecFactor;
+    this[isInt$0] = isInt;
+    this[autovalidate$0] = autovalidate;
+    this[numberFieldDecoration$0] = numberFieldDecoration;
+    this[widgetContainerDecoration$0] = widgetContainerDecoration;
+    this[validator$0] = validator;
+    this[style$0] = style;
+    this[incIcon$0] = incIcon;
+    this[decIcon$0] = decIcon;
+    this[fractionDigits$0] = fractionDigits;
+    this[scaleWidth$0] = scaleWidth;
+    this[scaleHeight$0] = scaleHeight;
+    this[incIconSize$0] = incIconSize;
+    this[decIconSize$0] = decIconSize;
+    this[decIconColor$0] = decIconColor;
+    this[incIconColor$0] = incIconColor;
+    this[onDecrement$0] = onDecrement;
+    this[onIncrement$0] = onIncrement;
+    this[onSubmitted$0] = onSubmitted;
+    this[separateIcons$0] = separateIcons;
+    this[decIconDecoration$] = decIconDecoration;
+    this[incIconDecoration$] = incIconDecoration;
+    this[incDecBgColor$] = incDecBgColor;
+    number_increment_decrement.NumberInputWithIncrementDecrement.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = number_increment_decrement.NumberInputWithIncrementDecrement.prototype;
+  dart.addTypeTests(number_increment_decrement.NumberInputWithIncrementDecrement);
+  dart.addTypeCaches(number_increment_decrement.NumberInputWithIncrementDecrement);
+  dart.setMethodSignature(number_increment_decrement.NumberInputWithIncrementDecrement, () => ({
+    __proto__: dart.getMethods(number_increment_decrement.NumberInputWithIncrementDecrement.__proto__),
+    createState: dart.fnType(dart.legacy(number_increment_decrement._NumberInputWithIncrementDecrementState), [])
+  }));
+  dart.setLibraryUri(number_increment_decrement.NumberInputWithIncrementDecrement, I[0]);
+  dart.setFieldSignature(number_increment_decrement.NumberInputWithIncrementDecrement, () => ({
+    __proto__: dart.getFields(number_increment_decrement.NumberInputWithIncrementDecrement.__proto__),
+    key: dart.finalFieldType(dart.legacy(key.Key)),
+    enabled: dart.finalFieldType(dart.legacy(core.bool)),
+    controller: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    buttonArrangement: dart.finalFieldType(dart.legacy(number_increment_decrement.ButtonArrangement)),
+    min: dart.finalFieldType(dart.legacy(core.num)),
+    max: dart.finalFieldType(dart.legacy(core.num)),
+    incDecFactor: dart.finalFieldType(dart.legacy(core.num)),
+    initialValue: dart.finalFieldType(dart.legacy(core.num)),
+    isInt: dart.finalFieldType(dart.legacy(core.bool)),
+    autovalidate: dart.finalFieldType(dart.legacy(core.bool)),
+    numberFieldDecoration: dart.finalFieldType(dart.legacy(input_decorator.InputDecoration)),
+    widgetContainerDecoration: dart.finalFieldType(dart.legacy(decoration.Decoration)),
+    validator: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.String)]))),
+    style: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    incIconDecoration: dart.finalFieldType(dart.legacy(decoration.Decoration)),
+    decIconDecoration: dart.finalFieldType(dart.legacy(decoration.Decoration)),
+    incIcon: dart.finalFieldType(dart.legacy(icon_data.IconData)),
+    incIconSize: dart.finalFieldType(dart.legacy(core.double)),
+    incIconColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    onIncrement: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.num)]))),
+    onSubmitted: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.num)]))),
+    decIcon: dart.finalFieldType(dart.legacy(icon_data.IconData)),
+    decIconSize: dart.finalFieldType(dart.legacy(core.double)),
+    decIconColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    onDecrement: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.num)]))),
+    fractionDigits: dart.finalFieldType(dart.legacy(core.int)),
+    scaleWidth: dart.finalFieldType(dart.legacy(core.double)),
+    scaleHeight: dart.finalFieldType(dart.legacy(core.double)),
+    separateIcons: dart.finalFieldType(dart.legacy(core.bool)),
+    incDecBgColor: dart.finalFieldType(dart.legacy(ui.Color))
+  }));
+  number_increment_decrement.NumberInputPrefabbed = class NumberInputPrefabbed extends number_increment_decrement.NumberInputWithIncrementDecrement {
+    get key() {
+      return this[key$];
+    }
+    set key(value) {
+      super.key = value;
+    }
+    get enabled() {
+      return this[enabled$];
+    }
+    set enabled(value) {
+      super.enabled = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get buttonArrangement() {
+      return this[buttonArrangement$];
+    }
+    set buttonArrangement(value) {
+      super.buttonArrangement = value;
+    }
+    get min() {
+      return this[min$];
+    }
+    set min(value) {
+      super.min = value;
+    }
+    get max() {
+      return this[max$];
+    }
+    set max(value) {
+      super.max = value;
+    }
+    get incDecFactor() {
+      return this[incDecFactor$];
+    }
+    set incDecFactor(value) {
+      super.incDecFactor = value;
+    }
+    get initialValue() {
+      return this[initialValue$];
+    }
+    set initialValue(value) {
+      super.initialValue = value;
+    }
+    get isInt() {
+      return this[isInt$];
+    }
+    set isInt(value) {
+      super.isInt = value;
+    }
+    get autovalidate() {
+      return this[autovalidate$];
+    }
+    set autovalidate(value) {
+      super.autovalidate = value;
+    }
+    get numberFieldDecoration() {
+      return this[numberFieldDecoration$];
+    }
+    set numberFieldDecoration(value) {
+      super.numberFieldDecoration = value;
+    }
+    get widgetContainerDecoration() {
+      return this[widgetContainerDecoration$];
+    }
+    set widgetContainerDecoration(value) {
+      super.widgetContainerDecoration = value;
+    }
+    get validator() {
+      return this[validator$];
+    }
+    set validator(value) {
+      super.validator = value;
+    }
+    get style() {
+      return this[style$];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get incIconDecoration() {
+      return this[incIconDecoration];
+    }
+    set incIconDecoration(value) {
+      super.incIconDecoration = value;
+    }
+    get decIconDecoration() {
+      return this[decIconDecoration];
+    }
+    set decIconDecoration(value) {
+      super.decIconDecoration = value;
+    }
+    get incIcon() {
+      return this[incIcon$];
+    }
+    set incIcon(value) {
+      super.incIcon = value;
+    }
+    get incIconSize() {
+      return this[incIconSize$];
+    }
+    set incIconSize(value) {
+      super.incIconSize = value;
+    }
+    get incIconColor() {
+      return this[incIconColor$];
+    }
+    set incIconColor(value) {
+      super.incIconColor = value;
+    }
+    get onIncrement() {
+      return this[onIncrement$];
+    }
+    set onIncrement(value) {
+      super.onIncrement = value;
+    }
+    get onSubmitted() {
+      return this[onSubmitted$];
+    }
+    set onSubmitted(value) {
+      super.onSubmitted = value;
+    }
+    get decIcon() {
+      return this[decIcon$];
+    }
+    set decIcon(value) {
+      super.decIcon = value;
+    }
+    get decIconSize() {
+      return this[decIconSize$];
+    }
+    set decIconSize(value) {
+      super.decIconSize = value;
+    }
+    get decIconColor() {
+      return this[decIconColor$];
+    }
+    set decIconColor(value) {
+      super.decIconColor = value;
+    }
+    get onDecrement() {
+      return this[onDecrement$];
+    }
+    set onDecrement(value) {
+      super.onDecrement = value;
+    }
+    get fractionDigits() {
+      return this[fractionDigits$];
+    }
+    set fractionDigits(value) {
+      super.fractionDigits = value;
+    }
+    get scaleWidth() {
+      return this[scaleWidth$];
+    }
+    set scaleWidth(value) {
+      super.scaleWidth = value;
+    }
+    get scaleHeight() {
+      return this[scaleHeight$];
+    }
+    set scaleHeight(value) {
+      super.scaleHeight = value;
+    }
+    get separateIcons() {
+      return this[separateIcons$];
+    }
+    set separateIcons(value) {
+      super.separateIcons = value;
+    }
+  };
+  (number_increment_decrement.NumberInputPrefabbed.squaredButtons = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+    let buttonArrangement = opts && 'buttonArrangement' in opts ? opts.buttonArrangement : C[0] || CT.C0;
+    let min = opts && 'min' in opts ? opts.min : -2;
+    let max = opts && 'max' in opts ? opts.max : 1 / 0;
+    let initialValue = opts && 'initialValue' in opts ? opts.initialValue : 0;
+    let incDecFactor = opts && 'incDecFactor' in opts ? opts.incDecFactor : 1;
+    let isInt = opts && 'isInt' in opts ? opts.isInt : true;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let numberFieldDecoration = opts && 'numberFieldDecoration' in opts ? opts.numberFieldDecoration : null;
+    let widgetContainerDecoration = opts && 'widgetContainerDecoration' in opts ? opts.widgetContainerDecoration : C[1] || CT.C1;
+    let validator = opts && 'validator' in opts ? opts.validator : null;
+    let style = opts && 'style' in opts ? opts.style : null;
+    let incIcon = opts && 'incIcon' in opts ? opts.incIcon : C[3] || CT.C3;
+    let decIcon = opts && 'decIcon' in opts ? opts.decIcon : C[4] || CT.C4;
+    let fractionDigits = opts && 'fractionDigits' in opts ? opts.fractionDigits : 2;
+    let scaleWidth = opts && 'scaleWidth' in opts ? opts.scaleWidth : 1;
+    let scaleHeight = opts && 'scaleHeight' in opts ? opts.scaleHeight : 1;
+    let incIconSize = opts && 'incIconSize' in opts ? opts.incIconSize : 28;
+    let decIconSize = opts && 'decIconSize' in opts ? opts.decIconSize : 28;
+    let decIconColor = opts && 'decIconColor' in opts ? opts.decIconColor : null;
+    let incIconColor = opts && 'incIconColor' in opts ? opts.incIconColor : null;
+    let onDecrement = opts && 'onDecrement' in opts ? opts.onDecrement : null;
+    let onIncrement = opts && 'onIncrement' in opts ? opts.onIncrement : null;
+    let onSubmitted = opts && 'onSubmitted' in opts ? opts.onSubmitted : null;
+    let separateIcons = opts && 'separateIcons' in opts ? opts.separateIcons : false;
+    let incDecBgColor = opts && 'incDecBgColor' in opts ? opts.incDecBgColor : C[5] || CT.C5;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[key$] = key;
+    this[enabled$] = enabled;
+    this[buttonArrangement$] = buttonArrangement;
+    this[min$] = min;
+    this[max$] = max;
+    this[initialValue$] = initialValue;
+    this[incDecFactor$] = incDecFactor;
+    this[isInt$] = isInt;
+    this[autovalidate$] = autovalidate;
+    this[numberFieldDecoration$] = numberFieldDecoration;
+    this[widgetContainerDecoration$] = widgetContainerDecoration;
+    this[validator$] = validator;
+    this[style$] = style;
+    this[incIcon$] = incIcon;
+    this[decIcon$] = decIcon;
+    this[fractionDigits$] = fractionDigits;
+    this[scaleWidth$] = scaleWidth;
+    this[scaleHeight$] = scaleHeight;
+    this[incIconSize$] = incIconSize;
+    this[decIconSize$] = decIconSize;
+    this[decIconColor$] = decIconColor;
+    this[incIconColor$] = incIconColor;
+    this[onDecrement$] = onDecrement;
+    this[onIncrement$] = onIncrement;
+    this[onSubmitted$] = onSubmitted;
+    this[separateIcons$] = separateIcons;
+    this[incIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, border: box_border.Border.all({color: colors.Colors.black, width: 0.5})});
+    this[decIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, border: box_border.Border.all({color: colors.Colors.black, width: 0.5})});
+    number_increment_decrement.NumberInputPrefabbed.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = number_increment_decrement.NumberInputPrefabbed.prototype;
+  (number_increment_decrement.NumberInputPrefabbed.leafyButtons = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+    let buttonArrangement = opts && 'buttonArrangement' in opts ? opts.buttonArrangement : C[0] || CT.C0;
+    let min = opts && 'min' in opts ? opts.min : 0;
+    let max = opts && 'max' in opts ? opts.max : 1 / 0;
+    let initialValue = opts && 'initialValue' in opts ? opts.initialValue : 0;
+    let incDecFactor = opts && 'incDecFactor' in opts ? opts.incDecFactor : 1;
+    let isInt = opts && 'isInt' in opts ? opts.isInt : true;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let numberFieldDecoration = opts && 'numberFieldDecoration' in opts ? opts.numberFieldDecoration : null;
+    let widgetContainerDecoration = opts && 'widgetContainerDecoration' in opts ? opts.widgetContainerDecoration : C[1] || CT.C1;
+    let validator = opts && 'validator' in opts ? opts.validator : null;
+    let style = opts && 'style' in opts ? opts.style : null;
+    let incIcon = opts && 'incIcon' in opts ? opts.incIcon : C[3] || CT.C3;
+    let decIcon = opts && 'decIcon' in opts ? opts.decIcon : C[4] || CT.C4;
+    let fractionDigits = opts && 'fractionDigits' in opts ? opts.fractionDigits : 2;
+    let scaleWidth = opts && 'scaleWidth' in opts ? opts.scaleWidth : 1;
+    let scaleHeight = opts && 'scaleHeight' in opts ? opts.scaleHeight : 1;
+    let incIconSize = opts && 'incIconSize' in opts ? opts.incIconSize : 28;
+    let decIconSize = opts && 'decIconSize' in opts ? opts.decIconSize : 28;
+    let decIconColor = opts && 'decIconColor' in opts ? opts.decIconColor : null;
+    let incIconColor = opts && 'incIconColor' in opts ? opts.incIconColor : null;
+    let onDecrement = opts && 'onDecrement' in opts ? opts.onDecrement : null;
+    let onIncrement = opts && 'onIncrement' in opts ? opts.onIncrement : null;
+    let onSubmitted = opts && 'onSubmitted' in opts ? opts.onSubmitted : null;
+    let separateIcons = opts && 'separateIcons' in opts ? opts.separateIcons : true;
+    let incDecBgColor = opts && 'incDecBgColor' in opts ? opts.incDecBgColor : C[5] || CT.C5;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[key$] = key;
+    this[enabled$] = enabled;
+    this[buttonArrangement$] = buttonArrangement;
+    this[min$] = min;
+    this[max$] = max;
+    this[initialValue$] = initialValue;
+    this[incDecFactor$] = incDecFactor;
+    this[isInt$] = isInt;
+    this[autovalidate$] = autovalidate;
+    this[numberFieldDecoration$] = numberFieldDecoration;
+    this[widgetContainerDecoration$] = widgetContainerDecoration;
+    this[validator$] = validator;
+    this[style$] = style;
+    this[incIcon$] = incIcon;
+    this[decIcon$] = decIcon;
+    this[fractionDigits$] = fractionDigits;
+    this[scaleWidth$] = scaleWidth;
+    this[scaleHeight$] = scaleHeight;
+    this[incIconSize$] = incIconSize;
+    this[decIconSize$] = decIconSize;
+    this[decIconColor$] = decIconColor;
+    this[incIconColor$] = incIconColor;
+    this[onDecrement$] = onDecrement;
+    this[onIncrement$] = onIncrement;
+    this[onSubmitted$] = onSubmitted;
+    this[separateIcons$] = separateIcons;
+    this[incIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? new border_radius.BorderRadius.only({bottomRight: new ui.Radius.circular(10.0), topLeft: new ui.Radius.circular(10.0)}) : new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(10.0), bottomLeft: new ui.Radius.circular(10.0)}), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    this[decIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(10.0), bottomLeft: new ui.Radius.circular(10.0)}) : new border_radius.BorderRadius.only({bottomRight: new ui.Radius.circular(10.0), topLeft: new ui.Radius.circular(10.0)}), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    number_increment_decrement.NumberInputPrefabbed.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = number_increment_decrement.NumberInputPrefabbed.prototype;
+  (number_increment_decrement.NumberInputPrefabbed.directionalButtons = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+    let buttonArrangement = opts && 'buttonArrangement' in opts ? opts.buttonArrangement : C[0] || CT.C0;
+    let min = opts && 'min' in opts ? opts.min : 0;
+    let max = opts && 'max' in opts ? opts.max : 1 / 0;
+    let initialValue = opts && 'initialValue' in opts ? opts.initialValue : 0;
+    let incDecFactor = opts && 'incDecFactor' in opts ? opts.incDecFactor : 1;
+    let isInt = opts && 'isInt' in opts ? opts.isInt : true;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let numberFieldDecoration = opts && 'numberFieldDecoration' in opts ? opts.numberFieldDecoration : null;
+    let widgetContainerDecoration = opts && 'widgetContainerDecoration' in opts ? opts.widgetContainerDecoration : C[1] || CT.C1;
+    let validator = opts && 'validator' in opts ? opts.validator : null;
+    let style = opts && 'style' in opts ? opts.style : null;
+    let incIcon = opts && 'incIcon' in opts ? opts.incIcon : C[3] || CT.C3;
+    let decIcon = opts && 'decIcon' in opts ? opts.decIcon : C[4] || CT.C4;
+    let fractionDigits = opts && 'fractionDigits' in opts ? opts.fractionDigits : 2;
+    let scaleWidth = opts && 'scaleWidth' in opts ? opts.scaleWidth : 1;
+    let scaleHeight = opts && 'scaleHeight' in opts ? opts.scaleHeight : 1;
+    let incIconSize = opts && 'incIconSize' in opts ? opts.incIconSize : 28;
+    let decIconSize = opts && 'decIconSize' in opts ? opts.decIconSize : 28;
+    let decIconColor = opts && 'decIconColor' in opts ? opts.decIconColor : null;
+    let incIconColor = opts && 'incIconColor' in opts ? opts.incIconColor : null;
+    let onDecrement = opts && 'onDecrement' in opts ? opts.onDecrement : null;
+    let onIncrement = opts && 'onIncrement' in opts ? opts.onIncrement : null;
+    let onSubmitted = opts && 'onSubmitted' in opts ? opts.onSubmitted : null;
+    let separateIcons = opts && 'separateIcons' in opts ? opts.separateIcons : true;
+    let incDecBgColor = opts && 'incDecBgColor' in opts ? opts.incDecBgColor : C[5] || CT.C5;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[key$] = key;
+    this[enabled$] = enabled;
+    this[buttonArrangement$] = buttonArrangement;
+    this[min$] = min;
+    this[max$] = max;
+    this[initialValue$] = initialValue;
+    this[incDecFactor$] = incDecFactor;
+    this[isInt$] = isInt;
+    this[autovalidate$] = autovalidate;
+    this[numberFieldDecoration$] = numberFieldDecoration;
+    this[widgetContainerDecoration$] = widgetContainerDecoration;
+    this[validator$] = validator;
+    this[style$] = style;
+    this[incIcon$] = incIcon;
+    this[decIcon$] = decIcon;
+    this[fractionDigits$] = fractionDigits;
+    this[scaleWidth$] = scaleWidth;
+    this[scaleHeight$] = scaleHeight;
+    this[incIconSize$] = incIconSize;
+    this[decIconSize$] = decIconSize;
+    this[decIconColor$] = decIconColor;
+    this[incIconColor$] = incIconColor;
+    this[onDecrement$] = onDecrement;
+    this[onIncrement$] = onIncrement;
+    this[onSubmitted$] = onSubmitted;
+    this[separateIcons$] = separateIcons;
+    this[incIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(15.0), topLeft: new ui.Radius.circular(15.0)}), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    this[decIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: new border_radius.BorderRadius.only({bottomRight: new ui.Radius.circular(15.0), bottomLeft: new ui.Radius.circular(15.0)}), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    number_increment_decrement.NumberInputPrefabbed.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = number_increment_decrement.NumberInputPrefabbed.prototype;
+  (number_increment_decrement.NumberInputPrefabbed.roundedEdgeButtons = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+    let buttonArrangement = opts && 'buttonArrangement' in opts ? opts.buttonArrangement : C[0] || CT.C0;
+    let min = opts && 'min' in opts ? opts.min : 0;
+    let max = opts && 'max' in opts ? opts.max : 1 / 0;
+    let initialValue = opts && 'initialValue' in opts ? opts.initialValue : 0;
+    let incDecFactor = opts && 'incDecFactor' in opts ? opts.incDecFactor : 1;
+    let isInt = opts && 'isInt' in opts ? opts.isInt : true;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let widgetContainerDecoration = opts && 'widgetContainerDecoration' in opts ? opts.widgetContainerDecoration : C[1] || CT.C1;
+    let validator = opts && 'validator' in opts ? opts.validator : null;
+    let style = opts && 'style' in opts ? opts.style : null;
+    let incIcon = opts && 'incIcon' in opts ? opts.incIcon : C[3] || CT.C3;
+    let decIcon = opts && 'decIcon' in opts ? opts.decIcon : C[4] || CT.C4;
+    let fractionDigits = opts && 'fractionDigits' in opts ? opts.fractionDigits : 2;
+    let scaleWidth = opts && 'scaleWidth' in opts ? opts.scaleWidth : 1;
+    let scaleHeight = opts && 'scaleHeight' in opts ? opts.scaleHeight : 1;
+    let incIconSize = opts && 'incIconSize' in opts ? opts.incIconSize : 27;
+    let decIconSize = opts && 'decIconSize' in opts ? opts.decIconSize : 27;
+    let decIconColor = opts && 'decIconColor' in opts ? opts.decIconColor : null;
+    let incIconColor = opts && 'incIconColor' in opts ? opts.incIconColor : null;
+    let onDecrement = opts && 'onDecrement' in opts ? opts.onDecrement : null;
+    let onIncrement = opts && 'onIncrement' in opts ? opts.onIncrement : null;
+    let onSubmitted = opts && 'onSubmitted' in opts ? opts.onSubmitted : null;
+    let separateIcons = opts && 'separateIcons' in opts ? opts.separateIcons : true;
+    let incDecBgColor = opts && 'incDecBgColor' in opts ? opts.incDecBgColor : C[5] || CT.C5;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[key$] = key;
+    this[enabled$] = enabled;
+    this[buttonArrangement$] = buttonArrangement;
+    this[min$] = min;
+    this[max$] = max;
+    this[initialValue$] = initialValue;
+    this[incDecFactor$] = incDecFactor;
+    this[isInt$] = isInt;
+    this[autovalidate$] = autovalidate;
+    this[widgetContainerDecoration$] = widgetContainerDecoration;
+    this[validator$] = validator;
+    this[style$] = style;
+    this[incIcon$] = incIcon;
+    this[decIcon$] = decIcon;
+    this[fractionDigits$] = fractionDigits;
+    this[scaleWidth$] = scaleWidth;
+    this[scaleHeight$] = scaleHeight;
+    this[incIconSize$] = incIconSize;
+    this[decIconSize$] = decIconSize;
+    this[decIconColor$] = decIconColor;
+    this[incIconColor$] = incIconColor;
+    this[onDecrement$] = onDecrement;
+    this[onIncrement$] = onIncrement;
+    this[onSubmitted$] = onSubmitted;
+    this[separateIcons$] = separateIcons;
+    this[numberFieldDecoration$] = buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd || buttonArrangement == number_increment_decrement.ButtonArrangement.leftEnd ? new input_decorator.InputDecoration.new({border: new input_border.OutlineInputBorder.new({borderRadius: buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(5.0), bottomLeft: new ui.Radius.circular(5.0)}) : new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(5.0), bottomRight: new ui.Radius.circular(5.0)})})}) : null;
+    this[incIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(5.0)}) : buttonArrangement == number_increment_decrement.ButtonArrangement.incLeftDecRight ? new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(5.0), bottomLeft: new ui.Radius.circular(5.0)}) : buttonArrangement == number_increment_decrement.ButtonArrangement.incRightDecLeft ? new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(5.0), bottomRight: new ui.Radius.circular(5.0)}) : new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(5.0)}), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    this[decIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? new border_radius.BorderRadius.only({bottomRight: new ui.Radius.circular(5.0)}) : buttonArrangement == number_increment_decrement.ButtonArrangement.incLeftDecRight ? new border_radius.BorderRadius.only({topRight: new ui.Radius.circular(5.0), bottomRight: new ui.Radius.circular(5.0)}) : buttonArrangement == number_increment_decrement.ButtonArrangement.incRightDecLeft ? new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(5.0), bottomLeft: new ui.Radius.circular(5.0)}) : new border_radius.BorderRadius.only({bottomLeft: new ui.Radius.circular(5.0)}), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    number_increment_decrement.NumberInputPrefabbed.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = number_increment_decrement.NumberInputPrefabbed.prototype;
+  (number_increment_decrement.NumberInputPrefabbed.roundedButtons = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+    let buttonArrangement = opts && 'buttonArrangement' in opts ? opts.buttonArrangement : C[0] || CT.C0;
+    let min = opts && 'min' in opts ? opts.min : 0;
+    let max = opts && 'max' in opts ? opts.max : 1 / 0;
+    let initialValue = opts && 'initialValue' in opts ? opts.initialValue : 0;
+    let incDecFactor = opts && 'incDecFactor' in opts ? opts.incDecFactor : 1;
+    let isInt = opts && 'isInt' in opts ? opts.isInt : true;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let widgetContainerDecoration = opts && 'widgetContainerDecoration' in opts ? opts.widgetContainerDecoration : C[1] || CT.C1;
+    let validator = opts && 'validator' in opts ? opts.validator : null;
+    let style = opts && 'style' in opts ? opts.style : null;
+    let incIcon = opts && 'incIcon' in opts ? opts.incIcon : C[17] || CT.C17;
+    let decIcon = opts && 'decIcon' in opts ? opts.decIcon : C[18] || CT.C18;
+    let fractionDigits = opts && 'fractionDigits' in opts ? opts.fractionDigits : 2;
+    let scaleWidth = opts && 'scaleWidth' in opts ? opts.scaleWidth : 1;
+    let scaleHeight = opts && 'scaleHeight' in opts ? opts.scaleHeight : 1;
+    let incIconSize = opts && 'incIconSize' in opts ? opts.incIconSize : 27;
+    let decIconSize = opts && 'decIconSize' in opts ? opts.decIconSize : 27;
+    let decIconColor = opts && 'decIconColor' in opts ? opts.decIconColor : null;
+    let incIconColor = opts && 'incIconColor' in opts ? opts.incIconColor : null;
+    let onDecrement = opts && 'onDecrement' in opts ? opts.onDecrement : null;
+    let onIncrement = opts && 'onIncrement' in opts ? opts.onIncrement : null;
+    let onSubmitted = opts && 'onSubmitted' in opts ? opts.onSubmitted : null;
+    let separateIcons = opts && 'separateIcons' in opts ? opts.separateIcons : true;
+    let numberFieldDecoration = opts && 'numberFieldDecoration' in opts ? opts.numberFieldDecoration : null;
+    let incDecBgColor = opts && 'incDecBgColor' in opts ? opts.incDecBgColor : C[5] || CT.C5;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[key$] = key;
+    this[enabled$] = enabled;
+    this[buttonArrangement$] = buttonArrangement;
+    this[min$] = min;
+    this[max$] = max;
+    this[initialValue$] = initialValue;
+    this[incDecFactor$] = incDecFactor;
+    this[isInt$] = isInt;
+    this[autovalidate$] = autovalidate;
+    this[widgetContainerDecoration$] = widgetContainerDecoration;
+    this[validator$] = validator;
+    this[style$] = style;
+    this[incIcon$] = incIcon;
+    this[decIcon$] = decIcon;
+    this[fractionDigits$] = fractionDigits;
+    this[scaleWidth$] = scaleWidth;
+    this[scaleHeight$] = scaleHeight;
+    this[incIconSize$] = incIconSize;
+    this[decIconSize$] = decIconSize;
+    this[decIconColor$] = decIconColor;
+    this[incIconColor$] = incIconColor;
+    this[onDecrement$] = onDecrement;
+    this[onIncrement$] = onIncrement;
+    this[onSubmitted$] = onSubmitted;
+    this[separateIcons$] = separateIcons;
+    this[numberFieldDecoration$] = numberFieldDecoration;
+    this[incIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(50.0)), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    this[decIconDecoration] = new box_decoration.BoxDecoration.new({color: incDecBgColor, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(50.0)), border: box_border.Border.all({color: colors.Colors.black, width: 0.25})});
+    number_increment_decrement.NumberInputPrefabbed.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = number_increment_decrement.NumberInputPrefabbed.prototype;
+  dart.addTypeTests(number_increment_decrement.NumberInputPrefabbed);
+  dart.addTypeCaches(number_increment_decrement.NumberInputPrefabbed);
+  dart.setLibraryUri(number_increment_decrement.NumberInputPrefabbed, I[0]);
+  dart.setFieldSignature(number_increment_decrement.NumberInputPrefabbed, () => ({
+    __proto__: dart.getFields(number_increment_decrement.NumberInputPrefabbed.__proto__),
+    key: dart.finalFieldType(dart.legacy(key.Key)),
+    enabled: dart.finalFieldType(dart.legacy(core.bool)),
+    controller: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    buttonArrangement: dart.finalFieldType(dart.legacy(number_increment_decrement.ButtonArrangement)),
+    min: dart.finalFieldType(dart.legacy(core.num)),
+    max: dart.finalFieldType(dart.legacy(core.num)),
+    incDecFactor: dart.finalFieldType(dart.legacy(core.num)),
+    initialValue: dart.finalFieldType(dart.legacy(core.num)),
+    isInt: dart.finalFieldType(dart.legacy(core.bool)),
+    autovalidate: dart.finalFieldType(dart.legacy(core.bool)),
+    numberFieldDecoration: dart.finalFieldType(dart.legacy(input_decorator.InputDecoration)),
+    widgetContainerDecoration: dart.finalFieldType(dart.legacy(decoration.Decoration)),
+    validator: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(core.String)]))),
+    style: dart.finalFieldType(dart.legacy(text_style.TextStyle)),
+    incIconDecoration: dart.finalFieldType(dart.legacy(decoration.Decoration)),
+    decIconDecoration: dart.finalFieldType(dart.legacy(decoration.Decoration)),
+    incIcon: dart.finalFieldType(dart.legacy(icon_data.IconData)),
+    incIconSize: dart.finalFieldType(dart.legacy(core.double)),
+    incIconColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    onIncrement: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.num)]))),
+    onSubmitted: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.num)]))),
+    decIcon: dart.finalFieldType(dart.legacy(icon_data.IconData)),
+    decIconSize: dart.finalFieldType(dart.legacy(core.double)),
+    decIconColor: dart.finalFieldType(dart.legacy(ui.Color)),
+    onDecrement: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.num)]))),
+    fractionDigits: dart.finalFieldType(dart.legacy(core.int)),
+    scaleWidth: dart.finalFieldType(dart.legacy(core.double)),
+    scaleHeight: dart.finalFieldType(dart.legacy(core.double)),
+    separateIcons: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  number_increment_decrement.ButtonArrangement = class ButtonArrangement extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (number_increment_decrement.ButtonArrangement.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = number_increment_decrement.ButtonArrangement.prototype;
+  dart.addTypeTests(number_increment_decrement.ButtonArrangement);
+  dart.addTypeCaches(number_increment_decrement.ButtonArrangement);
+  dart.setMethodSignature(number_increment_decrement.ButtonArrangement, () => ({
+    __proto__: dart.getMethods(number_increment_decrement.ButtonArrangement.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(number_increment_decrement.ButtonArrangement, I[0]);
+  dart.setFieldSignature(number_increment_decrement.ButtonArrangement, () => ({
+    __proto__: dart.getFields(number_increment_decrement.ButtonArrangement.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(number_increment_decrement.ButtonArrangement, ['toString']);
+  number_increment_decrement.ButtonArrangement.leftEnd = C[19] || CT.C19;
+  number_increment_decrement.ButtonArrangement.rightEnd = C[0] || CT.C0;
+  number_increment_decrement.ButtonArrangement.incLeftDecRight = C[20] || CT.C20;
+  number_increment_decrement.ButtonArrangement.incRightDecLeft = C[21] || CT.C21;
+  number_increment_decrement.ButtonArrangement.values = C[22] || CT.C22;
+  var _controller = dart.privateName(number_increment_decrement, "_controller");
+  var _minMaxValidator = dart.privateName(number_increment_decrement, "_minMaxValidator");
+  var _buildIncrementButton = dart.privateName(number_increment_decrement, "_buildIncrementButton");
+  var _buildDecrementButton = dart.privateName(number_increment_decrement, "_buildDecrementButton");
+  var _buildColumnOfButtons = dart.privateName(number_increment_decrement, "_buildColumnOfButtons");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  number_increment_decrement._NumberInputWithIncrementDecrementState = class _NumberInputWithIncrementDecrementState extends framework.State$(dart.legacy(number_increment_decrement.NumberInputWithIncrementDecrement)) {
+    initState() {
+      super.initState();
+      this[_controller] = this.widget.controller;
+      this[_controller].text = dart.test(this.widget.isInt) ? dart.toString(this.widget.initialValue) : this.widget.initialValue[$toStringAsFixed](this.widget.fractionDigits);
+    }
+    [_minMaxValidator](value) {
+      return value != null && value[$isNotEmpty] && (dart.notNull(core.num.parse(value)) < dart.notNull(this.widget.min) || dart.notNull(core.num.parse(value)) > dart.notNull(this.widget.max)) ? "Value should be between " + dart.str(this.widget.min) + " and " + dart.str(this.widget.max) : null;
+    }
+    build(context) {
+      let t0, t1, t1$;
+      return new basic.Transform.new({transform: vector_math_64.Matrix4.diagonal3Values(this.widget.scaleWidth, this.widget.scaleHeight, 1.0), child: new container.Container.new({decoration: (t0 = this.widget.widgetContainerDecoration, t0 == null ? new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.circular(5.0), border: box_border.Border.all({color: colors.Colors.blueGrey, width: 2.0})}) : t0), child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: (() => {
+              let t0 = T.JSArrayOfWidgetL().of([]);
+              if (this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.incLeftDecRight) t0[$add](this[_buildIncrementButton]());
+              if (this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.incRightDecLeft) t0[$add](this[_buildDecrementButton]());
+              if (this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.leftEnd) t0[$add](this[_buildColumnOfButtons]());
+              t0[$add](new basic.Expanded.new({flex: 1, child: new text_form_field.TextFormField.new({validator: (t1 = this.widget.validator, t1 == null ? dart.bind(this, _minMaxValidator) : t1), style: this.widget.style, enabled: this.widget.enabled, textAlign: ui.TextAlign.center, autovalidate: this.widget.autovalidate, decoration: (t1$ = this.widget.numberFieldDecoration, t1$ == null ? new input_decorator.InputDecoration.new({border: new input_border.OutlineInputBorder.new({borderRadius: new border_radius.BorderRadius.circular(5.0)})}) : t1$), controller: this[_controller], keyboardType: new text_input.TextInputType.numberWithOptions({decimal: !dart.test(this.widget.isInt), signed: true}), inputFormatters: T.JSArrayOfTextInputFormatterL().of([dart.test(this.widget.isInt) ? text_formatter.FilteringTextInputFormatter.digitsOnly : new text_formatter.FilteringTextInputFormatter.allow(core.RegExp.new("[0-9.]"))]), onFieldSubmitted: dart.fn(value => {
+                    let t3, t2;
+                    if (this.widget.onSubmitted != null) {
+                      let newVal = null;
+                      try {
+                        newVal = dart.test(this.widget.isInt) ? core.int.parse(value) : core.double.parse(value);
+                      } catch (e$) {
+                        let e = dart.getThrown(e$);
+                        return;
+                      }
+                      newVal = dart.notNull(newVal) > dart.notNull(this.widget.min) ? newVal : this.widget.min;
+                      newVal = dart.notNull(newVal) < dart.notNull(this.widget.max) ? newVal : this.widget.max;
+                      t2 = this.widget;
+                      t3 = newVal;
+                      t2.onSubmitted(t3);
+                    }
+                  }, T.StringLToNull()), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}));
+              if (this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.incLeftDecRight) t0[$add](this[_buildDecrementButton]());
+              if (this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.incRightDecLeft) t0[$add](this[_buildIncrementButton]());
+              if (this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd) t0[$add](this[_buildColumnOfButtons]());
+              return t0;
+            })(), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[43] || CT.C43}), $creationLocationd_0dea112b090073317d4: C[47] || CT.C47});
+    }
+    [_buildColumnOfButtons]() {
+      return new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, crossAxisAlignment: flex.CrossAxisAlignment.center, mainAxisAlignment: flex.MainAxisAlignment.center, children: (() => {
+          let t2 = T.JSArrayOfWidgetL().of([this[_buildIncrementButton]()]);
+          if (dart.test(this.widget.separateIcons)) t2[$add](new container.Container.new({color: colors.Colors.transparent, height: 2.0, $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}));
+          t2[$add](this[_buildDecrementButton]());
+          return t2;
+        })(), $creationLocationd_0dea112b090073317d4: C[55] || CT.C55});
+    }
+    [_buildDecrementButton]() {
+      let t3;
+      return new ink_decoration.Ink.new({decoration: (t3 = this.widget.decIconDecoration, t3 == null ? new box_decoration.BoxDecoration.new({border: this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.leftEnd || this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? null : new box_border.Border.new({top: new borders.BorderSide.new({color: colors.Colors.black}), bottom: new borders.BorderSide.new({color: colors.Colors.black})})}) : t3), child: new ink_well.InkWell.new({splashColor: this.widget.incDecBgColor, child: new icon.Icon.new(this.widget.decIcon, {size: this.widget.decIconSize, color: this.widget.decIconColor, $creationLocationd_0dea112b090073317d4: C[61] || CT.C61}), onTap: !dart.test(this.widget.enabled) ? null : dart.fn(() => {
+            let currentValue = dart.test(this.widget.isInt) ? core.int.parse(this[_controller].text) : core.double.parse(this[_controller].text);
+            this.setState(dart.fn(() => {
+              let t4, t3;
+              currentValue = dart.notNull(currentValue) - dart.notNull(this.widget.incDecFactor);
+              currentValue = dart.notNull(currentValue) > dart.notNull(this.widget.min) ? currentValue : this.widget.min;
+              this[_controller].text = dart.test(this.widget.isInt) ? dart.toString(currentValue) : currentValue[$toStringAsFixed](this.widget.fractionDigits);
+              if (this.widget.onDecrement != null) {
+                t3 = this.widget;
+                t4 = currentValue;
+                t3.onDecrement(t4);
+              }
+            }, T.VoidToNull()));
+          }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), $creationLocationd_0dea112b090073317d4: C[71] || CT.C71});
+    }
+    [_buildIncrementButton]() {
+      let t3;
+      return new ink_decoration.Ink.new({decoration: (t3 = this.widget.incIconDecoration, t3 == null ? new box_decoration.BoxDecoration.new({border: this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.leftEnd || this.widget.buttonArrangement == number_increment_decrement.ButtonArrangement.rightEnd ? new box_border.Border.new({bottom: new borders.BorderSide.new({color: colors.Colors.black})}) : new box_border.Border.new({top: new borders.BorderSide.new({color: colors.Colors.black}), bottom: new borders.BorderSide.new({color: colors.Colors.black})})}) : t3), child: new ink_well.InkWell.new({splashColor: this.widget.incDecBgColor, child: new icon.Icon.new(this.widget.incIcon, {size: this.widget.incIconSize, color: this.widget.incIconColor, $creationLocationd_0dea112b090073317d4: C[75] || CT.C75}), onTap: !dart.test(this.widget.enabled) ? null : dart.fn(() => {
+            let currentValue = dart.test(this.widget.isInt) ? core.int.parse(this[_controller].text) : core.double.parse(this[_controller].text);
+            this.setState(dart.fn(() => {
+              let t4, t3;
+              currentValue = dart.notNull(currentValue) + dart.notNull(this.widget.incDecFactor);
+              currentValue = dart.notNull(currentValue) < dart.notNull(this.widget.max) ? currentValue : this.widget.max;
+              this[_controller].text = dart.test(this.widget.isInt) ? dart.toString(currentValue) : currentValue[$toStringAsFixed](this.widget.fractionDigits);
+              if (this.widget.onIncrement != null) {
+                t3 = this.widget;
+                t4 = currentValue;
+                t3.onIncrement(t4);
+              }
+            }, T.VoidToNull()));
+          }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[80] || CT.C80}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85});
+    }
+  };
+  (number_increment_decrement._NumberInputWithIncrementDecrementState.new = function() {
+    this[_controller] = null;
+    number_increment_decrement._NumberInputWithIncrementDecrementState.__proto__.new.call(this);
+    ;
+  }).prototype = number_increment_decrement._NumberInputWithIncrementDecrementState.prototype;
+  dart.addTypeTests(number_increment_decrement._NumberInputWithIncrementDecrementState);
+  dart.addTypeCaches(number_increment_decrement._NumberInputWithIncrementDecrementState);
+  dart.setMethodSignature(number_increment_decrement._NumberInputWithIncrementDecrementState, () => ({
+    __proto__: dart.getMethods(number_increment_decrement._NumberInputWithIncrementDecrementState.__proto__),
+    [_minMaxValidator]: dart.fnType(dart.legacy(core.String), [dart.legacy(core.String)]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    [_buildColumnOfButtons]: dart.fnType(dart.legacy(basic.Column), []),
+    [_buildDecrementButton]: dart.fnType(dart.legacy(ink_decoration.Ink), []),
+    [_buildIncrementButton]: dart.fnType(dart.legacy(ink_decoration.Ink), [])
+  }));
+  dart.setLibraryUri(number_increment_decrement._NumberInputWithIncrementDecrementState, I[0]);
+  dart.setFieldSignature(number_increment_decrement._NumberInputWithIncrementDecrementState, () => ({
+    __proto__: dart.getFields(number_increment_decrement._NumberInputWithIncrementDecrementState.__proto__),
+    [_controller]: dart.fieldType(dart.legacy(editable_text.TextEditingController))
+  }));
+  dart.trackLibraries("packages/number_inc_dec/src/number_increment_decrement.dart", {
+    "package:number_inc_dec/src/number_increment_decrement.dart": number_increment_decrement
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["number_increment_decrement.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA8cY;;;;;;IAGC;;;;;;IAGiB;;;;;;IAIJ;;;;;;IAGd;;;;;;IAGA;;;;;;IAKA;;;;;;IAGA;;;;;;IAIC;;;;;;IAIA;;;;;;IAIW;;;;;;IAIL;;;;;;IAcgB;;;;;;IAejB;;;;;;IAIC;;;;;;IAIA;;;;;;IAGF;;;;;;IAIF;;;;;;IAID;;;;;;IAIa;;;;;;IAIL;;;;;;IAGL;;;;;;IAIF;;;;;;IAID;;;;;;IAIa;;;;;;IAKf;;;;;;IAIG;;;;;;IAIA;;;;;;IAIF;;;;;;IAGC;;;;;;;AAoCR;IAAyC;;;QAlC5B;QACV;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IA7BU;IACV;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;AA9BP;;EA+BE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAjmBQ;;;;;;IAGC;;;;;;IAGiB;;;;;;IAIJ;;;;;;IAGd;;;;;;IAGA;;;;;;IAKA;;;;;;IAGA;;;;;;IAIC;;;;;;IAIA;;;;;;IAIW;;;;;;IAIL;;;;;;IAcgB;;;;;;IAejB;;;;;;IAIC;;;;;;IAIA;;;;;;IAGF;;;;;;IAIF;;;;;;IAID;;;;;;IAKa;;;;;;IAIL;;;;;;IAGL;;;;;;IAIF;;;;;;IAID;;;;;;IAKa;;;;;;IAKf;;;;;;IAIG;;;;;;IAIA;;;;;;IAIF;;;;;;;;QAGM;QACV;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;;IA3BS;IACV;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IAEiB,0BAAE,6CACX,aAAa,UACL,8BACC,4BACP;IAGO,0BAAE,6CACX,aAAa,UACL,8BACC,4BACP;AAxCjB;;EA0CO;;QAGU;QACV;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;;IA3BS;IACV;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IAEiB,0BAAE,6CACX,aAAa,gBACN,AAAkB,iBAAD,IAAsB,wDAClC,kDACS,uBAAS,gBACb,uBAAS,UAEd,+CACM,uBAAS,mBACP,uBAAS,iBAErB,8BACC,4BACP;IAGO,0BAAE,6CACX,aAAa,gBACN,AAAkB,iBAAD,IAAsB,wDAClC,+CACM,uBAAS,mBACP,uBAAS,UAEjB,kDACS,uBAAS,gBACb,uBAAS,iBAElB,8BACC,4BACP;AA1DjB;;EA4DO;;QAGU;QACV;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;;IA3BS;IACV;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IAEiB,0BAAE,6CACX,aAAa,gBACO,+CACR,uBAAS,gBACV,uBAAS,iBAEZ,8BACC,4BACP;IAGO,0BAAE,6CACX,aAAa,gBACO,kDACL,uBAAS,mBACV,uBAAS,iBAEf,8BACC,4BACP;AAhDjB;;EAkDO;;QAGU;QACV;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;;IA1BS;IACV;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IAEqB,+BAAE,AAAkB,AACH,iBADE,IACX,yDACtB,AAAkB,iBAAD,IAAsB,uDACzC,iDACU,uDACQ,AAAkB,iBAAD,IAAsB,wDAClC,8CACK,uBAAS,kBACN,uBAAS,SAEjB,+CACM,uBAAS,mBACN,uBAAS,aAIzC;IACY,0BAAE,6CACX,aAAa,gBACN,AAAkB,iBAAD,IAAsB,wDAClC,+CACM,uBAAS,SAE5B,AAAkB,iBAAD,IAAsB,+DACtB,8CACK,uBAAS,kBACN,uBAAS,SAE9B,AAAkB,iBAAD,IAAsB,+DACtB,+CACM,uBAAS,mBACN,uBAAS,SAElB,8CACK,uBAAS,gBAE1B,8BACC,4BACP;IAGO,0BAAE,6CACX,aAAa,gBACN,AAAkB,iBAAD,IAAsB,wDAClC,kDACS,uBAAS,SAE/B,AAAkB,iBAAD,IAAsB,+DACtB,+CACM,uBAAS,mBACN,uBAAS,SAE/B,AAAkB,iBAAD,IAAsB,+DACtB,8CACK,uBAAS,kBACN,uBAAS,SAEjB,iDACQ,uBAAS,gBAE7B,8BACC,4BACP;AA1FjB;;EA4FO;;QAEU;QACV;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;;IA3BS;IACV;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IAEiB,0BAAE,6CACX,aAAa,gBACO,mCAAW,uBAAS,gBAChC,8BACC,4BACP;IAGO,0BAAE,6CACX,aAAa,gBACO,mCAAW,uBAAS,gBAChC,8BACC,4BACP;AA1CjB;;EA4CO;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAeT;;sEAZK;;;;EAYL;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAoLqB,MAAX;AACyB,MAA/B,oBAAc,AAAO;AAI2C,MAFhE,AAAY,mCAAO,AAAO,qBACA,cAApB,AAAO,4BACP,AAAO,AAAa,2CAAgB,AAAO;IACnD;uBAE+B;AAC7B,YAAO,AAAM,AACY,MADb,YACJ,AAAM,KAAD,kBACa,aAAb,eAAM,KAAK,kBAAI,AAAO,oBAAwB,aAAb,eAAM,KAAK,kBAAI,AAAO,oBAC9D,AACF,sCAD6B,AAAO,mBAAI,mBAAO,AAAO,mBACpD;IACR;UAG0B;;AACxB,YAAO,qCAEO,uCAAgB,AAAO,wBAAY,AAAO,yBAAa,aAC5D,0CACwC,KAAjC,AAAO,uCAAA,aACf,oDAC6B,wCAAS,cACrB,8BACC,+BACP,sBAGR,sCACgC,wCACnB;;AAChB,kBAAI,AAAO,AAAkB,iCAAqB,8DAChD;AACF,kBAAI,AAAO,AAAkB,iCAAqB,8DAChD;AACF,kBAAI,AAAO,AAAkB,iCAAqB,sDAChD;AACF,qDACQ,UACC,mDACyB,KAAjB,AAAO,uBAAA,uBAAa,sCACxB,AAAO,4BACL,AAAO,gCACK,mCACP,AAAO,uCACoB,MAA7B,AAAO,mCAAA,cACf,iDACU,uDACqB,wCAAS,6BAGhC,iCACgB,yDACjB,WAAC,AAAO,4BACT,yBAE2B,+CACnC,AAAO,qBAC2B,wDACA,qDAC1B,gBAAO,gCAGC,QAAC;;AACjB,wBAAS,AAAO,AAAY;AACtB;AACJ;AAG2B,wBAFzB,mBAAc,AAAO,qBACX,eAAM,KAAK,IACR,kBAAM,KAAK;;4BACjB;AACP;;AAGgD,sBAAlD,SAAgB,aAAP,MAAM,iBAAG,AAAO,mBAAM,MAAM,GAAG,AAAO;AACG,sBAAlD,SAAgB,aAAP,MAAM,iBAAG,AAAO,mBAAM,MAAM,GAAG,AAAO;AAEhB,2BAA1B;2BAAmB,MAAM;sBAAP;;;AAIjC,kBAAI,AAAO,AAAkB,iCAAqB,8DAChD;AACF,kBAAI,AAAO,AAAkB,iCAAqB,8DAChD;AACF,kBAAI,AAAO,AAAkB,iCAAqB,uDAChD;;;IAKZ;;AAGE,YAAO,qCACsB,2CACY,mDACF,yCACnB;4CAChB;AACA,wBAAI,AAAO,4BACT,6CACgB,mCACN;AAEZ;;;IAGN;;;AAGE,YAAO,0CACgC,KAAzB,AAAO,+BAAA,aACf,8CACU,AAAO,AAAkB,AAA6B,iCAAR,wDAC9C,AAAO,AAAkB,iCAAqB,wDAChD,OACA,gCACO,mCAAyB,+BACtB,mCAAyB,wCAGxC,uCACQ,AAAO,kCACb,kBACL,AAAO,4BACD,AAAO,gCACN,AAAO,4FAET,WAAC,AAAO,uBACT,OACA;AACM,yCAAe,AAAO,qBAChB,eAAM,AAAY,0BACf,kBAAM,AAAY;AAa7B,YAZF,cAAS;;AAC0C,cAAjD,eAA4B,aAAb,YAAY,iBAAG,AAAO;AAEoB,cADzD,eACiB,aAAb,YAAY,iBAAG,AAAO,mBAAM,YAAY,GAAG,AAAO;AAIxB,cAH9B,AAAY,mCAAO,AAAO,qBACP,cAAb,YAAY,IACZ,AAAa,YAAD,mBACV,AAAO;AAEf,kBAAI,AAAO,AAAY;AACW,qBAAhC;qBAAmB,YAAY;gBAAb;;;;IAMpC;;;AAGE,YAAO,0CACgC,KAAzB,AAAO,+BAAA,aACf,8CACU,AAAO,AAAkB,AAA6B,iCAAR,wDAC9C,AAAO,AAAkB,iCAAqB,wDAChD,mCACU,mCAAyB,0BAEnC,gCACO,mCAAyB,+BACtB,mCAAyB,wCAGxC,uCACQ,AAAO,kCACb,kBACL,AAAO,4BACD,AAAO,gCACN,AAAO,4FAET,WAAC,AAAO,uBACT,OACA;AACM,yCAAe,AAAO,qBAChB,eAAM,AAAY,0BACf,kBAAM,AAAY;AAa7B,YAZF,cAAS;;AAC0C,cAAjD,eAA4B,aAAb,YAAY,iBAAG,AAAO;AAEoB,cADzD,eACiB,aAAb,YAAY,iBAAG,AAAO,mBAAM,YAAY,GAAG,AAAO;AAIxB,cAH9B,AAAY,mCAAO,AAAO,qBACP,cAAb,YAAY,IACZ,AAAa,YAAD,mBACV,AAAO;AAEf,kBAAI,AAAO,AAAY;AACW,qBAAhC;qBAAmB,YAAY;gBAAb;;;;IAMpC;;;IA1MsB;;;EA2MxB","file":"../../../../../../../../packages/number_inc_dec/src/number_increment_decrement.dart.lib.js"}');
+  // Exports:
+  return {
+    src__number_increment_decrement: number_increment_decrement
+  };
+}));
+
+//# sourceMappingURL=number_increment_decrement.dart.lib.js.map

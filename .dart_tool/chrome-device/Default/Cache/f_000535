@@ -1,0 +1,241 @@
+define(['dart_sdk', 'packages/flutter_web_diary/bloc/guests/guests_state.dart', 'packages/flutter_web_diary/model/notification.dart', 'packages/flutter_web_diary/bloc/guests/guests_event.dart', 'packages/flutter_web_diary/model/guest.dart', 'packages/bloc/src/cubit.dart', 'packages/flutter_web_diary/repository/guests_repository.dart', 'packages/flutter_web_diary/repository/notification_repository.dart'], (function load__packages__flutter_web_diary__bloc__guests__guests_bloc_dart(dart_sdk, packages__flutter_web_diary__bloc__guests__guests_state$46dart, packages__flutter_web_diary__model__notification$46dart, packages__flutter_web_diary__bloc__guests__guests_event$46dart, packages__flutter_web_diary__model__guest$46dart, packages__bloc__src__cubit$46dart, packages__flutter_web_diary__repository__guests_repository$46dart, packages__flutter_web_diary__repository__notification_repository$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const guests_state = packages__flutter_web_diary__bloc__guests__guests_state$46dart.bloc__guests__guests_state;
+  const notification = packages__flutter_web_diary__model__notification$46dart.model__notification;
+  const guests_event = packages__flutter_web_diary__bloc__guests__guests_event$46dart.bloc__guests__guests_event;
+  const guest = packages__flutter_web_diary__model__guest$46dart.model__guest;
+  const bloc = packages__bloc__src__cubit$46dart.src__bloc;
+  const guests_repository = packages__flutter_web_diary__repository__guests_repository$46dart.repository__guests_repository;
+  const notification_repository = packages__flutter_web_diary__repository__notification_repository$46dart.repository__notification_repository;
+  var guests_bloc = Object.create(dart.library);
+  var bloc$ = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    GuestsEventL: () => (T.GuestsEventL = dart.constFn(dart.legacy(guests_event.GuestsEvent)))(),
+    LoadGuestsL: () => (T.LoadGuestsL = dart.constFn(dart.legacy(guests_event.LoadGuests)))(),
+    UpdateGuestL: () => (T.UpdateGuestL = dart.constFn(dart.legacy(guests_event.UpdateGuest)))(),
+    DeleteGuestL: () => (T.DeleteGuestL = dart.constFn(dart.legacy(guests_event.DeleteGuest)))(),
+    ToggleAllL: () => (T.ToggleAllL = dart.constFn(dart.legacy(guests_event.ToggleAll)))(),
+    ClearCompletedL: () => (T.ClearCompletedL = dart.constFn(dart.legacy(guests_event.ClearCompleted)))(),
+    SearchGuestsL: () => (T.SearchGuestsL = dart.constFn(dart.legacy(guests_event.SearchGuests)))(),
+    LoadGuestByIDL: () => (T.LoadGuestByIDL = dart.constFn(dart.legacy(guests_event.LoadGuestByID)))(),
+    ChooseCompanionL: () => (T.ChooseCompanionL = dart.constFn(dart.legacy(guests_event.ChooseCompanion)))(),
+    GuestsStateL: () => (T.GuestsStateL = dart.constFn(dart.legacy(guests_state.GuestsState)))(),
+    _AsyncStarImplOfGuestsStateL: () => (T._AsyncStarImplOfGuestsStateL = dart.constFn(async._AsyncStarImpl$(T.GuestsStateL())))(),
+    GuestL: () => (T.GuestL = dart.constFn(dart.legacy(guest.Guest)))(),
+    ListOfGuestL: () => (T.ListOfGuestL = dart.constFn(core.List$(T.GuestL())))(),
+    ListLOfGuestL: () => (T.ListLOfGuestL = dart.constFn(dart.legacy(T.ListOfGuestL())))(),
+    ListLOfGuestLTovoid: () => (T.ListLOfGuestLTovoid = dart.constFn(dart.fnType(dart.void, [T.ListLOfGuestL()])))(),
+    NotificationModelL: () => (T.NotificationModelL = dart.constFn(dart.legacy(notification.NotificationModel)))(),
+    ListOfNotificationModelL: () => (T.ListOfNotificationModelL = dart.constFn(core.List$(T.NotificationModelL())))(),
+    ListLOfNotificationModelL: () => (T.ListLOfNotificationModelL = dart.constFn(dart.legacy(T.ListOfNotificationModelL())))(),
+    ListLOfNotificationModelLToNull: () => (T.ListLOfNotificationModelLToNull = dart.constFn(dart.fnType(core.Null, [T.ListLOfNotificationModelL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = [
+    "file:///C:/Users/nangl/Capston-Project/wedding_response/lib/bloc/guests/guests_bloc.dart",
+    "package:flutter_web_diary/bloc/guests/guests_bloc.dart"
+  ];
+  var isUpdate = dart.privateName(guests_bloc, "GuestsBloc.isUpdate");
+  var _guestsSubscription = dart.privateName(guests_bloc, "_guestsSubscription");
+  var _notiSubscription = dart.privateName(guests_bloc, "_notiSubscription");
+  var _guestsRepository = dart.privateName(guests_bloc, "_guestsRepository");
+  var _notiRepository = dart.privateName(guests_bloc, "_notiRepository");
+  var _mapLoadGuestsToState = dart.privateName(guests_bloc, "_mapLoadGuestsToState");
+  var _mapUpdateGuestToState = dart.privateName(guests_bloc, "_mapUpdateGuestToState");
+  var _mapDeleteGuestToState = dart.privateName(guests_bloc, "_mapDeleteGuestToState");
+  var _mapToggleAllToState = dart.privateName(guests_bloc, "_mapToggleAllToState");
+  var _mapClearCompletedToState = dart.privateName(guests_bloc, "_mapClearCompletedToState");
+  var _mapSearchingToState = dart.privateName(guests_bloc, "_mapSearchingToState");
+  var _mapLoadByIDToState = dart.privateName(guests_bloc, "_mapLoadByIDToState");
+  var _mapChooseCompanionToState = dart.privateName(guests_bloc, "_mapChooseCompanionToState");
+  guests_bloc.GuestsBloc = class GuestsBloc extends bloc.Bloc$(dart.legacy(guests_event.GuestsEvent), dart.legacy(guests_state.GuestsState)) {
+    get isUpdate() {
+      return this[isUpdate];
+    }
+    set isUpdate(value) {
+      this[isUpdate] = value;
+    }
+    fromGuest(guest, weddingID, notifications) {
+      let number = 1;
+      let isUpdating = false;
+      for (let i = 0; i < dart.notNull(notifications[$length]); i = i + 1) {
+        if (guest.id == notifications[$_get](i).detailsID) {
+          number = notifications[$_get](i).number;
+          isUpdating = true;
+          break;
+        }
+        if (dart.notNull(notifications[$_get](i).number) >= dart.notNull(number)) number = notifications[$_get](i).number;
+      }
+      let notificationModel = new notification.NotificationModel.new({content: dart.str(guest.name) + " đã phản hồi lời mời", read: true, type: 2, date: new core.DateTime.now().add(new core.Duration.new({minutes: 2})), detailsID: guest.id, isNew: true, number: isUpdating ? number : dart.notNull(number) + 1});
+      return notificationModel;
+    }
+    mapEventToState(event) {
+      T.GuestsEventL().as(event);
+      return new (T._AsyncStarImplOfGuestsStateL()).new((function* mapEventToState(stream) {
+        if (T.LoadGuestsL().is(event)) {
+          if (stream.addStream(this[_mapLoadGuestsToState](event))) return;
+          yield;
+        } else if (T.UpdateGuestL().is(event)) {
+          if (stream.addStream(this[_mapUpdateGuestToState](event))) return;
+          yield;
+        } else if (T.DeleteGuestL().is(event)) {
+          if (stream.addStream(this[_mapDeleteGuestToState](event))) return;
+          yield;
+        } else if (T.ToggleAllL().is(event)) {
+          if (stream.addStream(this[_mapToggleAllToState](event))) return;
+          yield;
+        } else if (T.ClearCompletedL().is(event)) {
+          if (stream.addStream(this[_mapClearCompletedToState]())) return;
+          yield;
+        } else if (T.SearchGuestsL().is(event)) {
+          if (stream.addStream(this[_mapSearchingToState]())) return;
+          yield;
+        } else if (T.LoadGuestByIDL().is(event)) {
+          if (stream.addStream(this[_mapLoadByIDToState](event))) return;
+          yield;
+        } else if (T.ChooseCompanionL().is(event)) {
+          if (stream.addStream(this[_mapChooseCompanionToState]())) return;
+          yield;
+        }
+      }).bind(this)).stream;
+    }
+    [_mapLoadGuestsToState](event) {
+      return new (T._AsyncStarImplOfGuestsStateL()).new((function* _mapLoadGuestsToState(stream) {
+        let t0, t0$;
+        t0 = this[_guestsSubscription];
+        t0 == null ? null : t0.cancel();
+        t0$ = this[_notiSubscription];
+        t0$ == null ? null : t0$.cancel();
+        this[_guestsSubscription] = this[_guestsRepository].readGuest(event.weddingId).listen(dart.fn(guests => this.add(new guests_event.ToggleAll.new(guests)), T.ListLOfGuestLTovoid()));
+      }).bind(this)).stream;
+    }
+    [_mapUpdateGuestToState](event) {
+      return new (T._AsyncStarImplOfGuestsStateL()).new((function* _mapUpdateGuestToState(stream) {
+        let t0;
+        this[_guestsRepository].updateGuest(event.guest, event.weddingId);
+        t0 = this[_notiSubscription];
+        t0 == null ? null : t0.cancel();
+        this.isUpdate = true;
+        this[_notiSubscription] = this[_notiRepository].getNotifications(event.weddingId).listen(dart.fn(notis => {
+          let t0;
+          let noti = this.fromGuest(event.guest, event.weddingId, notis);
+          core.print("NOTI " + dart.notNull(dart.toString(noti)));
+          this[_notiRepository].updateNotificationByTaskID(noti, event.weddingId);
+          t0 = this[_notiSubscription];
+          t0 == null ? null : t0.cancel();
+        }, T.ListLOfNotificationModelLToNull()));
+        if (stream.add(new guests_state.GuestUpdated.new())) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    [_mapDeleteGuestToState](event) {
+      return new (T._AsyncStarImplOfGuestsStateL()).new((function* _mapDeleteGuestToState(stream) {
+        this[_guestsRepository].deleteGuest(event.guest, event.weddingId);
+        if (stream.add(new guests_state.GuestDeleted.new())) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    [_mapToggleAllToState](event) {
+      return new (T._AsyncStarImplOfGuestsStateL()).new(function* _mapToggleAllToState(stream) {
+        if (stream.add(new guests_state.GuestsLoaded.new(event.guests))) return;
+        yield;
+      }).stream;
+    }
+    [_mapClearCompletedToState]() {
+      return new (T._AsyncStarImplOfGuestsStateL()).new(function* _mapClearCompletedToState(stream) {
+      }).stream;
+    }
+    [_mapSearchingToState]() {
+      return new (T._AsyncStarImplOfGuestsStateL()).new(function* _mapSearchingToState(stream) {
+        if (stream.add(new guests_state.GuestsSearching.new())) return;
+        yield;
+      }).stream;
+    }
+    [_mapChooseCompanionToState]() {
+      return new (T._AsyncStarImplOfGuestsStateL()).new(function* _mapChooseCompanionToState(stream) {
+        if (stream.add(new guests_state.CompanionChose.new())) return;
+        yield;
+      }).stream;
+    }
+    [_mapLoadByIDToState](event) {
+      return new (T._AsyncStarImplOfGuestsStateL()).new((function* _mapLoadByIDToState(stream) {
+        let guest = (yield this[_guestsRepository].readGuestByID(event.weddingId, event.guestID));
+        if (stream.add(new guests_state.GuestsLoadedByID.new(guest))) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    close() {
+      let t0;
+      t0 = this[_guestsSubscription];
+      t0 == null ? null : t0.cancel();
+      return super.close();
+    }
+  };
+  (guests_bloc.GuestsBloc.new = function(opts) {
+    let guestsRepository = opts && 'guestsRepository' in opts ? opts.guestsRepository : null;
+    let notificationRepository = opts && 'notificationRepository' in opts ? opts.notificationRepository : null;
+    this[_guestsSubscription] = null;
+    this[_notiSubscription] = null;
+    this[isUpdate] = false;
+    if (!(guestsRepository != null && notificationRepository != null)) dart.assertFailed(null, I[0], 18, 16, "guestsRepository != null && notificationRepository != null");
+    this[_guestsRepository] = guestsRepository;
+    this[_notiRepository] = notificationRepository;
+    guests_bloc.GuestsBloc.__proto__.new.call(this, new guests_state.GuestsLoading.new());
+    ;
+  }).prototype = guests_bloc.GuestsBloc.prototype;
+  dart.addTypeTests(guests_bloc.GuestsBloc);
+  dart.addTypeCaches(guests_bloc.GuestsBloc);
+  dart.setMethodSignature(guests_bloc.GuestsBloc, () => ({
+    __proto__: dart.getMethods(guests_bloc.GuestsBloc.__proto__),
+    fromGuest: dart.fnType(dart.legacy(notification.NotificationModel), [dart.legacy(guest.Guest), dart.legacy(core.String), dart.legacy(core.List$(dart.legacy(notification.NotificationModel)))]),
+    mapEventToState: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), [dart.legacy(core.Object)]),
+    [_mapLoadGuestsToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), [dart.legacy(guests_event.LoadGuests)]),
+    [_mapUpdateGuestToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), [dart.legacy(guests_event.UpdateGuest)]),
+    [_mapDeleteGuestToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), [dart.legacy(guests_event.DeleteGuest)]),
+    [_mapToggleAllToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), [dart.legacy(guests_event.ToggleAll)]),
+    [_mapClearCompletedToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), []),
+    [_mapSearchingToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), []),
+    [_mapChooseCompanionToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), []),
+    [_mapLoadByIDToState]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(guests_state.GuestsState))), [dart.legacy(guests_event.LoadGuestByID)])
+  }));
+  dart.setLibraryUri(guests_bloc.GuestsBloc, I[1]);
+  dart.setFieldSignature(guests_bloc.GuestsBloc, () => ({
+    __proto__: dart.getFields(guests_bloc.GuestsBloc.__proto__),
+    [_guestsRepository]: dart.finalFieldType(dart.legacy(guests_repository.GuestsRepository)),
+    [_notiRepository]: dart.finalFieldType(dart.legacy(notification_repository.NotificationRepository)),
+    [_guestsSubscription]: dart.fieldType(dart.legacy(async.StreamSubscription)),
+    [_notiSubscription]: dart.fieldType(dart.legacy(async.StreamSubscription)),
+    isUpdate: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.trackLibraries("packages/flutter_web_diary/bloc/guests/guests_bloc.dart", {
+    "package:flutter_web_diary/bloc/guests/guests_bloc.dart": guests_bloc,
+    "package:flutter_web_diary/bloc/guests/bloc.dart": bloc$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["guests_bloc.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA2EO;;;;;;cArD6B,OAAa,WAAmC;AAC5E,mBAAQ;AACP,uBAAa;AAClB,eAAQ,IAAE,GAAG,AAAC,CAAA,gBAAC,AAAc,aAAD,YAAS,IAAA,AAAC,CAAA;AACpC,YAAG,AAAM,AAAG,KAAJ,OAAO,AAAa,AAAI,aAAJ,QAAC,CAAC;AACI,UAAhC,SAAS,AAAa,AAAI,aAAJ,QAAC,CAAC;AACR,UAAhB,aAAY;AACZ;;AAEF,YAA2B,aAAxB,AAAa,AAAI,aAAJ,QAAC,CAAC,0BAAY,MAAM,GAClC,AAAgC,SAAvB,AAAa,AAAI,aAAJ,QAAC,CAAC;;AAEV,8BAAwB,iDACM,SAAhC,AAAM,KAAD,SAAM,8BACjB,YACA,SACS,AAAM,4BAAI,gCAAkB,iBAChC,AAAM,KAAD,YACT,cACC,UAAU,GAAG,MAAM,GAAW,aAAP,MAAM,IAAE;AAE3C,YAAO,kBAAiB;IAC1B;;0BAGgD;AAAb;AACjC,YAAS,mBAAN,KAAK;AACN,+BAAO,4BAAsB,KAAK;UAAlC;cACI,KAAS,oBAAN,KAAK;AACZ,+BAAO,6BAAuB,KAAK;UAAnC;cACI,KAAS,oBAAN,KAAK;AACZ,+BAAO,6BAAuB,KAAK;UAAnC;cACI,KAAS,kBAAN,KAAK;AACZ,+BAAO,2BAAqB,KAAK;UAAjC;cACI,KAAS,uBAAN,KAAK;AACZ,+BAAO;UAAP;cACI,KAAU,qBAAN,KAAK;AACb,+BAAO;UAAP;cACI,KAAU,sBAAN,KAAK;AACb,+BAAO,0BAAoB,KAAK;UAAhC;cACI,KAAU,wBAAN,KAAK;AACb,+BAAO;UAAP;;MAEJ;;4BAEqD;AAAZ;;AACV,aAA7B;4BAAqB;AACM,cAA3B;6BAAmB;AAGlB,QAFD,4BAAsB,AAAkB,AAA2B,kCAAjB,AAAM,KAAD,mBAC/C,QAAC,UAAW,SAAI,+BAAU,MAAM;MAE1C;;6BAGuD;AAAb;;AACmB,QAA3D,AAAkB,oCAAY,AAAM,KAAD,QAAQ,AAAM,KAAD;AACrB,aAA3B;4BAAmB;AACJ,QAAf,gBAAW;AAQV,QAPD,0BAAoB,AAAgB,AAAkC,uCAAjB,AAAM,KAAD,mBACpD,QAAC;;AACmB,qBAAO,eAAU,AAAM,KAAD,QAAQ,AAAM,KAAD,YAAY,KAAK;AACxC,UAA9B,WAAM,AAAO,uBAAM,cAAL,IAAI;AAC+C,UAAjE,AAAgB,iDAA2B,IAAI,EAAE,AAAM,KAAD;AAC3B,eAA3B;8BAAmB;;AAG3B,uBAAM;QAAN;MACF;;6BAEuD;AAAb;AACmB,QAA3D,AAAkB,oCAAY,AAAM,KAAD,QAAQ,AAAM,KAAD;AAChD,uBAAM;QAAN;MACF;;2BAEmD;AAAX;AACtC,uBAAM,kCAAa,AAAM,KAAD;QAAxB;MACF;;;AAE6C;MAAU;;;AAEf;AACtC,uBAAM;QAAN;MACF;;;AAE8C;AAC5C,uBAAM;QAAN;MACF;;0BAEsD;AAAf;AAC/B,qBAAQ,MAAM,AAAkB,sCAAc,AAAM,KAAD,YAAY,AAAM,KAAD;AAC1E,uBAAM,sCAAiB,KAAK;QAA5B;MACF;;;;AAI+B,WAA7B;0BAAqB;AACrB,YAAa;IACf;;;QAvGuC;QAAmD;IAHvE;IACA;IA6Dd,iBAAW;UA1DH,AAAiB,AAAQ,gBAAT,YAAY,AAAuB,sBAAD;IACvC,0BAAE,gBAAgB;IACpB,wBAAE,sBAAsB;AACxC,oDAAM;;EAAgB","file":"../../../../../../../packages/flutter_web_diary/bloc/guests/guests_bloc.dart.lib.js"}');
+  // Exports:
+  return {
+    bloc__guests__guests_bloc: guests_bloc,
+    bloc__guests__bloc: bloc$
+  };
+}));
+
+//# sourceMappingURL=guests_bloc.dart.lib.js.map
